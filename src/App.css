@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  background: #080b18;
+}
+
+.main-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 80px 6vw 100px;
+  background: #080b18;
+  isolation: isolate;
+}
+
+.main-section::before,
+.main-section::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.5;
+  animation: float-orb 14s ease-in-out infinite alternate;
+}
+
+.main-section::before {
+  top: 8%;
+  left: -170px;
+  background: #ef476f;
+}
+
+.main-section::after {
+  right: -150px;
+  bottom: 2%;
+  background: #06d6a0;
+  animation-delay: -6s;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 30px;
+  color: #fff;
+  text-align: center;
+}
+
+.section-kicker {
+  margin: 0 0 12px;
+  color: #ffd166;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.section-heading h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 1;
+}
+
+.section-heading > p:last-child {
+  margin: 18px 0 0;
+  color: #b7bdd4;
+  font-size: 16px;
+}
+
+.cards-container {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  gap: 22px;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px 0;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profile-card {
+  flex-shrink: 0;
+}
+
+@keyframes float-orb {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(120px, 70px, 0) scale(1.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-section::before,
+  .main-section::after { animation: none; }
+}
